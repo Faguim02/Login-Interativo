@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login Interativo</title>
+</head>
+<body>
+    <main id="container">
+        <figure>
+            <div class="head">
+                <div class="olhos">
+                    <div class="olho">
+                        <div class="pupila"></div>
+                    </div>
+                    <div class="olho">
+                        <div class="pupila"></div>
+                    </div>
+                </div>
+                <div class="nariz"></div>
+                <div class="boca"></div>
+
+            </div>
+        </figure>
+        <form>
+            <input type="text" placeholder="Usuario" class="component">
+            <input type="password" placeholder="Senha" class="component">
+            <button type="button" class="component" onclick="entrer()">Entrar</button>
+        </form>
+    </main>
+    <script>
+
+        var inputUser = document.getElementsByClassName('component')[0]
+        var inputPassword = document.getElementsByClassName('component')[1]
+        var head = document.getElementsByClassName('head')[0]
+        var olho = document.getElementsByClassName('olho')
+        var pupila = document.getElementsByClassName('pupila')
+        var boca = document.getElementsByClassName('boca')[0]
+        
+        inputPassword.addEventListener('click', function(){
+            olho[0].style = 'height: 1px;'
+            olho[1].style = 'height: 1px;'
+            pupila[0].style = 'background-color:transparent;'
+            pupila[1].style = 'background-color:transparent;'
+            head.style = `
+                    animation: idle 5s ease infinite;
+                `
+        })
+        inputUser.addEventListener('click', function(){
+            olho[0].style = 'align-items: flex-end;'
+            olho[1].style = 'align-items: flex-end;'
+            pupila[0].style = 'background-color:#502c0f;'
+            pupila[1].style = 'background-color:#502c0f;'
+            boca.style = `
+                border: 1px solid #ff000063;
+                border-radius: 100%;
+                width: 10px;
+                background-color:black;
+            `
+            head.style = `
+                    animation: idle 5s ease infinite;
+                `
+        })
+        function entrer(){
+            if((inputPassword.value == '') || (inputUser.value == '')){
+                head.style = `
+                    animation: negado 0.2s ease infinite;
+                `
+            }
+        }
+
+    </script>
+</body>
+</html>
